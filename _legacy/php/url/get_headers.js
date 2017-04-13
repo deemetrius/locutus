@@ -30,12 +30,14 @@ module.exports = function get_headers (url, format) { // eslint-disable-line cam
   })
   headers = format ? {} : []
 
-  for (var i in tmp) {
-    if (format) {
+  if (format) {
+    for (var i in tmp) {
       pair = tmp[i].split(':')
       headers[pair.splice(0, 1)] = pair.join(':')
         .substring(1)
-    } else {
+    }
+  } else {
+    for (var i in tmp) {
       headers[j++] = tmp[i]
     }
   }
